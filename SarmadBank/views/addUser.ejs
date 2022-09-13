@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="container mt-5">
+
+        <!-- - Alert msg -->
+        <% if(msg !="" ){%>
+            <div class="alert alert-success text-center " role="alert" id="addMsg">
+
+                <%=msg %>
+            </div>
+
+
+            <%} %>
+
+
+                <h1 class="text-center">New User</h1>
+
+                <form action="/adduser" method="POST">
+                    <div class="form-group mt-3">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userName" placeholder="Enter User Name" required>
+
+                    </div>
+                    <div class="form-group  mt-3">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userEmail" placeholder="Enter User Email" required>
+
+                    </div>
+                    <div class="form-group  mt-3">
+                        <label for="exampleInputPassword1">Mobile</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" name="userNumber" placeholder="Enter User Contact " required>
+
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Add Amount</label>
+                        <div class="input-group">
+
+
+                            <span class="input-group-text" id="price-label">Rs</span>
+                            <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="userAmount" required />
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3 text-center">Add User</button>
+                </form>
+                </div>
+
+
+                <script>
+                    let alert = document.getElementById('addMsg');
+                    setTimeout(() => {
+                        alert.style.visibility = "hidden"
+                    }, 2000)
+                </script>

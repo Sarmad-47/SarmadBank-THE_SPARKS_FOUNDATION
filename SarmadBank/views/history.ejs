@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate')%>
+
+
+    <div class="container mt-5">
+        <div class="container mt-5 bg-success text-center text-light fw-30 p-2">
+            <h3>Transactions History</h3>
+        </div>
+
+        <table class="table mt-2">
+            <thead class="bg-success text-light">
+                <tr>
+                    <th scope="col">Sender Name</th>
+                    <th scope="col">Reciever Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date & Time</th>
+                    <th scope="col">Remove</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% if(data.length>0){%>
+                    <% data.forEach((e) => {%>
+                        <tr>
+                            <td>
+                                <%= e.sName %>
+                            </td>
+                            <td>
+                                <%= e.rName %>
+                            </td>
+                            <td>
+                                Rs.
+                                <%= e.amount  %>
+                            </td>
+                            <td>
+                                <%= e.date  %>
+                            </td>
+                            <td>
+                                <a href="/remove/<%=e._id %>" class="btn btn-danger">
+                                    <i class="fa fa-minus"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <%}) %>
+
+                            <%}else{%>
+                                <tr class="bg-warning  text-light">
+                                    <td>
+
+                                        No records Found!
+
+                                    </td>
+                                </tr>
+
+
+                                <%} %>
+
+
+            </tbody>
+        </table>
+    </div>
